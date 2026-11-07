@@ -26,10 +26,6 @@ How it works
   (.github/workflows/update-stats.yml) fetches your data every 30 minutes and saves it
   to data/stats.json, which the site reads. (GitHub can delay scheduled runs by a few minutes.)
 
-One-time setup after you push to GitHub
-1. Open your repo > Actions tab. If asked, click "I understand my workflows, enable them".
-2. Click "Update live stats" > "Run workflow" once so data/stats.json gets filled right away.
-3. Check Settings > Actions > General > Workflow permissions is "Read and write permissions".
 
 Good to know
 - The Action commits to your repo, so run `git pull` in VS Code before your next push.
