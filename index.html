@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brunda S | CSE Student & Aspiring SDE</title>
+<meta name="description" content="Portfolio of Brunda S, Computer Science Engineering student at DSCE interested in software development and AI/ML.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070b16; --bg2:#0d1426; --card:rgba(255,255,255,.04); --border:rgba(255,255,255,.09);
+  --text:#e8ecf8; --muted:#8f9bb8; --a1:#7c5cff; --a2:#00e5c3; --a3:#ff5ca8;
+  --grad:linear-gradient(120deg,var(--a1),var(--a2));
+}
+[data-theme="light"]{
+  --bg:#f5f6fc; --bg2:#ffffff; --card:rgba(20,30,70,.04); --border:rgba(20,30,70,.12);
+  --text:#141a33; --muted:#566086; --a1:#5b3df5; --a2:#00a88f; --a3:#e0307f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .4s,color .4s}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'JetBrains Mono',monospace}
+#bg{position:fixed;inset:0;z-index:0;pointer-events:none}
+#glow{position:fixed;width:420px;height:420px;border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(124,92,255,.22),transparent 65%);transform:translate(-50%,-50%);left:50%;top:50%}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:200}
+main,header,footer{position:relative;z-index:1}
+header{overflow-x:clip}
+section{padding:110px 6vw;max-width:1200px;margin:0 auto}
+h2.title{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:46px;display:flex;align-items:center;gap:14px}
+h2.title span{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--a2);font-weight:400}
+h2.title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
+  padding:16px 6vw;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--border)}
+.logo{font-weight:700;font-size:1.3rem;letter-spacing:1px}
+.logo b{color:var(--a2)}
+.links{display:flex;gap:26px;align-items:center}
+.links a{font-size:.95rem;color:var(--muted);position:relative;transition:color .25s}
+.links a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--grad);transition:width .3s}
+.links a:hover,.links a.active{color:var(--text)}
+.links a:hover::after,.links a.active::after{width:100%}
+#theme{background:var(--card);border:1px solid var(--border);color:var(--text);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem;transition:transform .4s}
+#theme:hover{transform:rotate(180deg)}
+#burger{display:none;background:none;border:0;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+/* hero */
+#hero{min-height:100vh;display:grid;grid-template-columns:1.3fr .9fr;align-items:center;gap:40px;padding-top:130px}
+.hello{color:var(--a2);font-size:1rem;margin-bottom:12px}
+#hero h1{font-size:clamp(2.6rem,7vw,5rem);line-height:1.05;margin-bottom:16px}
+.role{font-size:clamp(1.1rem,2.6vw,1.6rem);color:var(--muted);min-height:2.2em}
+.role #typed{color:var(--text);font-weight:500}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--a2);margin-left:3px;vertical-align:middle;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.pitch{max-width:540px;margin:18px 0 32px;color:var(--muted)}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:13px 26px;border-radius:12px;font-weight:600;border:1px solid var(--border);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.btn.primary{background:var(--grad);color:#07101f;border:0}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(124,92,255,.35)}
+.socials{display:flex;gap:14px;margin-top:30px}
+.socials a{width:44px;height:44px;border:1px solid var(--border);border-radius:12px;display:grid;place-items:center;background:var(--card);
+  font-size:.8rem;font-family:'JetBrains Mono',monospace;transition:.3s}
+.socials a:hover{border-color:var(--a2);color:var(--a2);transform:translateY(-4px)}
+
+/* hero orb */
+.orb-wrap{display:grid;place-items:center;perspective:900px}
+.orb{position:relative;width:min(340px,70vw);aspect-ratio:1;transform-style:preserve-3d;transition:transform .15s}
+.orb .core{position:absolute;inset:22%;border-radius:50%;background:var(--grad);display:grid;place-items:center;
+  font-size:3.4rem;font-weight:700;color:#07101f;box-shadow:0 0 80px rgba(0,229,195,.45),0 0 140px rgba(124,92,255,.35);animation:pulse 4s ease-in-out infinite}
+.ring{position:absolute;inset:0;border-radius:50%;border:1.5px dashed var(--a1);opacity:.7;animation:spin 18s linear infinite}
+.ring.r2{inset:-9%;border:1.5px solid var(--a2);opacity:.35;animation-duration:26s;animation-direction:reverse}
+.ring.r3{inset:9%;border:1px dotted var(--a3);animation-duration:12s}
+.chip{position:absolute;padding:6px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:999px;font-size:.75rem;
+  font-family:'JetBrains Mono',monospace;animation:float 5s ease-in-out infinite;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.chip:nth-of-type(1){top:2%;left:8%}
+.chip:nth-of-type(2){top:18%;right:-6%;animation-delay:-1.2s}
+.chip:nth-of-type(3){bottom:8%;left:-4%;animation-delay:-2.4s}
+.chip:nth-of-type(4){bottom:2%;right:6%;animation-delay:-3.4s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@keyframes float{50%{transform:translateY(-14px)}}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+.about-grid p{color:var(--muted);margin-bottom:16px;font-size:1.05rem}
+.about-grid p strong{color:var(--text)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.stat{padding:22px;border-radius:16px;background:var(--card);border:1px solid var(--border);text-align:center}
+.stat .n{font-size:2.3rem;font-weight:700}
+.stat .l{font-size:.85rem;color:var(--muted)}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
+.panel{padding:26px;border-radius:18px;background:var(--card);border:1px solid var(--border);transition:.35s}
+.panel:hover{border-color:var(--a1);transform:translateY(-6px)}
+.panel h3{font-size:1.05rem;margin-bottom:16px;color:var(--a2);font-family:'JetBrains Mono',monospace;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:9px}
+.tag{padding:6px 13px;border-radius:999px;font-size:.85rem;background:var(--bg2);border:1px solid var(--border);transition:.25s}
+.tag:hover{background:var(--a1);color:#fff;border-color:var(--a1);transform:scale(1.07)}
+
+/* projects */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px}
+.card{position:relative;padding:30px;border-radius:20px;background:var(--card);border:1px solid var(--border);
+  transform-style:preserve-3d;transition:transform .2s,border-color .3s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,0%),rgba(124,92,255,.18),transparent 40%);opacity:0;transition:opacity .3s}
+.card:hover::before{opacity:1}
+.card:hover{border-color:var(--a2)}
+.card .num{font-family:'JetBrains Mono',monospace;color:var(--a3);font-size:.85rem}
+.card h3{font-size:1.35rem;margin:6px 0 12px}
+.card ul{list-style:none;color:var(--muted);font-size:.95rem;margin-bottom:18px}
+.card li{padding-left:18px;position:relative;margin-bottom:6px}
+.card li::before{content:"▹";position:absolute;left:0;color:var(--a2)}
+.card .tags .tag{font-size:.75rem}
+.card .go{position:relative;z-index:1;display:inline-block;margin-top:18px;color:var(--a2);font-weight:600;font-size:.92rem}
+.card .go:hover{letter-spacing:.5px}
+.badge{position:absolute;top:22px;right:22px;font-size:.7rem;padding:3px 10px;border-radius:999px;border:1px solid var(--a3);color:var(--a3);font-family:'JetBrains Mono',monospace}
+
+/* timeline + certs */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.timeline{border-left:2px solid var(--border);padding-left:26px;position:relative}
+.tl{position:relative;margin-bottom:26px}
+.tl::before{content:"";position:absolute;left:-35px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 14px var(--a2)}
+.tl h4{font-size:1.1rem}
+.tl .meta{color:var(--a2);font-size:.82rem;font-family:'JetBrains Mono',monospace}
+.tl p{color:var(--muted);font-size:.95rem}
+.certs{display:grid;gap:12px}
+.cert{display:flex;gap:14px;align-items:center;padding:14px 18px;border-radius:14px;background:var(--card);border:1px solid var(--border);transition:.3s}
+.cert:hover{transform:translateX(8px);border-color:var(--a2)}
+.cert .ic{width:36px;height:36px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#07101f;font-weight:700;flex:none}
+.cert small{color:var(--muted);display:block}
+
+/* contact */
+.contact-box{text-align:center;padding:60px 30px;border-radius:26px;background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden}
+.contact-box::before{content:"";position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,rgba(124,92,255,.18),transparent 30%);animation:spin 14s linear infinite}
+.contact-box>*{position:relative}
+.contact-box h2{font-size:clamp(1.8rem,5vw,3rem);margin-bottom:12px}
+.contact-box p{color:var(--muted);max-width:520px;margin:0 auto 28px}
+.mail{font-family:'JetBrains Mono',monospace;font-size:1.05rem;display:inline-block;margin-top:22px;color:var(--a2)}
+footer{text-align:center;padding:36px 6vw;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+
+.card .go+.go{margin-left:20px}
+
+/* resume */
+.resume-box{display:flex;gap:34px;align-items:center;padding:34px;border-radius:22px;background:var(--card);border:1px solid var(--border)}
+.resume-box h3{font-size:1.4rem;margin-bottom:6px}
+.resume-box p{color:var(--muted)}
+.doc{flex:none;width:96px;height:124px;border-radius:10px;background:var(--grad);padding:16px 14px;display:flex;flex-direction:column;gap:9px;
+  box-shadow:0 12px 34px rgba(124,92,255,.35);animation:float 5s ease-in-out infinite}
+.doc i{display:block;height:6px;border-radius:3px;background:rgba(7,16,31,.55)}
+.doc i:first-child{width:60%;height:9px;background:rgba(7,16,31,.8)}
+.doc i:nth-child(4){width:80%}
+#rwrap{max-height:0;overflow:hidden;transition:max-height .6s ease,margin-top .6s ease}
+#rwrap.open{max-height:80vh;margin-top:28px}
+#rwrap iframe{width:100%;height:78vh;border:0;border-radius:14px;background:#fff}
+@media(max-width:860px){.resume-box{flex-direction:column;text-align:center}.resume-box .btns{justify-content:center}}
+.cert{width:100%;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.cert .ct{display:block}
+.cert .view{margin-left:auto;font-size:.78rem;color:var(--a2);font-family:'JetBrains Mono',monospace;white-space:nowrap;opacity:.7;transition:.3s}
+.cert:hover .view{opacity:1;transform:translateX(3px)}
+
+/* certificate viewer */
+.modal{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;padding:4vw;
+  background:rgba(4,7,16,.78);backdrop-filter:blur(8px)}
+.modal.show{display:flex;animation:fade .3s ease}
+.modal-box{position:relative;width:min(900px,100%);max-height:92vh;display:flex;flex-direction:column;gap:12px;
+  padding:24px;border-radius:20px;background:var(--bg2);border:1px solid var(--border);animation:pop .35s ease}
+.modal-box h3{font-size:1.15rem;padding-right:40px}
+#mbody{flex:1;min-height:200px;overflow:auto;border-radius:12px;background:var(--card);display:grid;place-items:center}
+#mbody img{max-width:100%;max-height:68vh;display:block}
+#mbody iframe{width:100%;height:68vh;border:0;background:#fff}
+.modal-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.85rem;color:var(--muted)}
+.modal-foot a{color:var(--a2)}
+#mclose{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;border:1px solid var(--border);
+  background:var(--card);color:var(--text);cursor:pointer;font-size:1rem}
+#mclose:hover{background:var(--a3);color:#fff}
+@keyframes fade{from{opacity:0}}
+@keyframes pop{from{opacity:0;transform:scale(.92) translateY(20px)}}
+
+/* live stats */
+.live{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:400;color:var(--a2);
+  padding:4px 12px;border:1px solid var(--border);border-radius:999px;background:var(--card);white-space:nowrap}
+.live em{font-style:normal}
+.live i{width:8px;height:8px;border-radius:50%;background:#2ee66b;animation:ping 1.8s infinite}
+.live.off{color:var(--muted)}
+.live.off i{background:var(--muted);animation:none}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(46,230,107,.6)}70%,100%{box-shadow:0 0 0 9px rgba(46,230,107,0)}}
+@keyframes bump{40%{transform:scale(1.18);color:var(--a2)}}
+.bump{animation:bump .8s ease}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.sp{padding:28px;border-radius:20px;background:var(--card);border:1px solid var(--border);min-width:0}
+.sp-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
+.sp-head h3{font-size:1.15rem}
+.sp-head a{color:var(--a2);font-size:.85rem}
+.sub{color:var(--muted);font-size:.74rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;margin:22px 0 10px}
+.lc-main{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.ringchart{position:relative;width:150px;height:150px;flex:none}
+.ringchart svg{transform:rotate(-90deg);display:block}
+.ringchart .bgc{stroke:var(--border)}
+.ringchart .fg{stroke:url(#lcg);stroke-linecap:round;transition:stroke-dashoffset 1.4s ease}
+.ringchart .mid{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.ringchart .mid b{font-size:2.2rem;line-height:1.1}
+.ringchart .mid small{color:var(--muted);font-size:.75rem}
+.diffs{flex:1;min-width:180px;display:grid;gap:14px}
+.diff .row{display:flex;justify-content:space-between;font-size:.86rem;margin-bottom:5px}
+.diff .row span:last-child{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.78rem}
+.diff .bar{height:7px;border-radius:4px;background:var(--border);overflow:hidden}
+.diff .bar i{display:block;height:100%;width:0;border-radius:4px;transition:width 1.2s ease}
+.diff.easy .bar i{background:#2ee6a6}.diff.med .bar i{background:#ffb84d}.diff.hard .bar i{background:#ff5c7a}
+.mini{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}
+.mini div{padding:12px;border-radius:12px;background:var(--bg2);border:1px solid var(--border);text-align:center}
+.mini b{display:block;font-size:1.35rem;line-height:1.3}
+.mini span{font-size:.72rem;color:var(--muted)}
+.lc-main+.mini{margin-top:22px}
+.feed{list-style:none;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.feed li{display:flex;justify-content:space-between;gap:12px;font-size:.87rem;padding:9px 12px;border-radius:10px;background:var(--bg2);border:1px solid var(--border)}
+.feed li.note{color:var(--muted);justify-content:center;text-align:center}
+.feed a{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mini b{white-space:nowrap}
+.feed a:hover{color:var(--a2)}
+.feed time{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.72rem;white-space:nowrap}
+.heat-wrap{overflow-x:auto;padding-bottom:8px}
+.heat{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,auto);grid-auto-columns:1fr;gap:3px;width:100%;min-width:742px}
+.heat i{width:auto!important;height:auto!important;aspect-ratio:1/1}
+.heat i,.heat-legend i{display:block;width:11px;height:11px;border-radius:2px;background:var(--card);border:1px solid var(--border)}
+.heat i.x{visibility:hidden}
+.heat i.l1,.heat-legend i.l1{background:color-mix(in srgb,var(--a2) 30%,transparent);border-color:transparent}
+.heat i.l2,.heat-legend i.l2{background:color-mix(in srgb,var(--a2) 52%,transparent);border-color:transparent}
+.heat i.l3,.heat-legend i.l3{background:color-mix(in srgb,var(--a2) 76%,transparent);border-color:transparent}
+.heat i.l4,.heat-legend i.l4{background:var(--a2);border-color:transparent}
+.heat-legend{display:flex;align-items:center;gap:4px;justify-content:flex-end;margin-top:10px;font-size:.72rem;color:var(--muted)}
+.heat-legend span{margin:0 4px}
+.mini.two{grid-template-columns:repeat(2,1fr)}
+.lc-main+.mini{grid-template-columns:repeat(3,1fr)}
+.lc-main{justify-content:center}
+@media(max-width:860px){
+  .stats-grid{grid-template-columns:1fr}
+  h2.title{flex-wrap:wrap}
+  .mini b{font-size:1.1rem}
+  .sp{padding:22px}
+}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:860px){
+  #hero,.about-grid,.two{grid-template-columns:1fr}
+  .orb-wrap{order:-1;margin-bottom:10px}
+  .links{position:fixed;top:68px;right:-100%;flex-direction:column;background:var(--bg2);width:70%;height:calc(100vh - 68px);padding:40px;transition:right .4s;border-left:1px solid var(--border)}
+  .links.open{right:0}
+  #burger{display:block}
+  section{padding:80px 6vw}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="bg"></canvas>
+<div id="glow"></div>
+
+<nav>
+  <a href="#hero" class="logo">B<b>.</b>S</a>
+  <button id="burger" aria-label="Menu">☰</button>
+  <div class="links" id="links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#live">Live</a>
+    <a href="#journey">Journey</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+    <button id="theme" aria-label="Toggle theme">☾</button>
+  </div>
+</nav>
+
+<header>
+<section id="hero">
+  <div>
+    <p class="hello mono reveal">&gt; hello, world! I'm</p>
+    <h1 class="reveal d1">Brunda <span class="grad">S</span></h1>
+    <p class="role reveal d2">I'm an <span id="typed"></span><span class="cursor"></span></p>
+    <p class="pitch reveal d3">Computer Science Engineering student at DSCE who loves solving problems with code and building practical AI/ML and web solutions. 200+ LeetCode problems solved and counting.</p>
+    <div class="btns reveal d3">
+      <a href="#projects" class="btn primary">View My Work</a>
+      <a href="#resume" class="btn">View Resume</a>
+      <a href="#contact" class="btn">Let's Connect</a>
+    </div>
+    <div class="socials reveal d3">
+      <a href="https://github.com/Brunda-tech" target="_blank" rel="noopener" title="GitHub">GH</a>
+      <a href="https://linkedin.com/in/brunda-s-a46539383" target="_blank" rel="noopener" title="LinkedIn">in</a>
+      <a href="https://leetcode.com/u/Brunda-17/" target="_blank" rel="noopener" title="LeetCode">LC</a>
+      <a href="mailto:brundashivakumar17@gmail.com" title="Email">@</a>
+    </div>
+  </div>
+  <div class="orb-wrap reveal d2">
+    <div class="orb" id="orb">
+      <div class="ring r2"></div><div class="ring"></div><div class="ring r3"></div>
+      <div class="core">BS</div>
+      <span class="chip">Java</span><span class="chip">Python</span><span class="chip">ML</span><span class="chip">DSA</span>
+    </div>
+  </div>
+</section>
+</header>
+
+<main>
+<section id="about">
+  <h2 class="title reveal"><span>01.</span> About Me</h2>
+  <div class="about-grid">
+    <div class="reveal">
+      <p>I'm a <strong>Computer Science Engineering</strong> student at <strong>Dayananda Sagar College of Engineering, Bengaluru</strong> with a strong foundation in <strong>Java, Python, DSA, SQL</strong> and web development.</p>
+      <p>I've solved <strong>200+ problems on LeetCode</strong>, along with problems on HackerRank and GeeksforGeeks. I enjoy building academic and personal projects across <strong>AI/ML, software development and web technologies</strong>, with a keen interest in turning ideas into practical solutions.</p>
+      <p>Currently aiming for <strong>SDE roles</strong> while exploring machine learning, RAG and local LLMs.</p>
+    </div>
+    <div class="stats reveal d2">
+      <div class="stat"><div class="n grad"><span class="count" id="lcCountAbout" data-to="200">0</span><span id="lcPlus">+</span></div><div class="l">LeetCode problems</div></div>
+      <div class="stat"><div class="n grad"><span class="count" data-to="9.7" data-dec="1">0</span></div><div class="l">Current CGPA</div></div>
+      <div class="stat"><div class="n grad"><span class="count" data-to="6">0</span></div><div class="l">Projects built</div></div>
+      <div class="stat"><div class="n grad"><span class="count" data-to="6">0</span></div><div class="l">Certifications</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="title reveal"><span>02.</span> Skills</h2>
+  <div class="skill-grid">
+    <div class="panel reveal"><h3>&lt;Languages /&gt;</h3><div class="tags"><span class="tag">Java</span><span class="tag">Python</span><span class="tag">C</span><span class="tag">SQL</span></div></div>
+    <div class="panel reveal d1"><h3>&lt;Core /&gt;</h3><div class="tags"><span class="tag">Data Structures</span><span class="tag">Algorithms</span><span class="tag">Problem Solving</span></div></div>
+    <div class="panel reveal d2"><h3>&lt;Web /&gt;</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript (Basics)</span><span class="tag">Flask</span></div></div>
+    <div class="panel reveal"><h3>&lt;Database /&gt;</h3><div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span></div></div>
+    <div class="panel reveal d1"><h3>&lt;Data Science &amp; AI /&gt;</h3><div class="tags"><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Scikit-learn</span><span class="tag">Machine Learning</span><span class="tag">LSTM</span><span class="tag">GRU</span><span class="tag">RAG</span><span class="tag">Local LLMs</span></div></div>
+    <div class="panel reveal d2"><h3>&lt;Tools /&gt;</h3><div class="tags"><span class="tag">VS Code</span><span class="tag">PyCharm</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Streamlit</span><span class="tag">Vercel</span><span class="tag">Ollama</span></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="title reveal"><span>03.</span> Projects</h2>
+  <div class="proj-grid">
+    <article class="card reveal">
+      <span class="num">01</span><h3>Solar Panel Fault Detection</h3>
+      <ul>
+        <li>AI-based fault detection using ESP32, LSTM, GRU and a local Gemma LLM with RAG.</li>
+        <li>Streamlit dashboard for fault analysis and data visualization.</li>
+      </ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">LSTM</span><span class="tag">GRU</span><span class="tag">ESP32</span><span class="tag">Streamlit</span><span class="tag">Gemma</span><span class="tag">RAG</span></div>
+      <a class="go" href="https://github.com/Brunda-tech/Solar_panel_fault_detection_using_local_LLM" target="_blank" rel="noopener">View on GitHub →</a>
+    </article>
+    <article class="card reveal d1">
+      <span class="num">02</span><h3>House Price Prediction</h3>
+      <ul>
+        <li>Random Forest model that predicts house prices from property features.</li>
+        <li>Interactive Streamlit app, built and deployed.</li>
+      </ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Random Forest</span><span class="tag">Streamlit</span></div>
+      <a class="go" href="https://housepriceprediction-f7rtyl2qt4tbwqnm3e4o5q.streamlit.app/" target="_blank" rel="noopener">Live Demo →</a>
+      <a class="go" href="https://github.com/Brunda-tech/House_price_prediction" target="_blank" rel="noopener">GitHub →</a>
+    </article>
+    <article class="card reveal d2">
+      <span class="num">03</span><h3>CGPA Calculator</h3>
+      <ul>
+        <li>Web-based CGPA calculator built with HTML, CSS and JavaScript.</li>
+        <li>Deployed on Vercel.</li>
+      </ul>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Vercel</span></div>
+      <a class="go" href="https://brunda-tech.github.io/CGPA_Calculator/" target="_blank" rel="noopener">Live Demo →</a>
+      <a class="go" href="https://github.com/Brunda-tech/CGPA_Calculator" target="_blank" rel="noopener">GitHub →</a>
+    </article>
+    <article class="card reveal d3">
+      <span class="badge">coming soon</span>
+      <span class="num">04</span><h3>Schememate</h3>
+      <ul>
+        <li>Role-based web platform with registration and login functionality.</li>
+        <li>Built with Flask and MySQL on the backend.</li>
+      </ul>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">MySQL</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      <span class="go" style="color:var(--muted)">Coming soon…</span>
+    </article>
+    <article class="card reveal">
+      <span class="badge">in progress</span>
+      <span class="num">05</span><h3>Student Task Manager</h3>
+      <ul>
+        <li>A task manager designed to help students organize and track their work.</li>
+        <li>Currently under development.</li>
+      </ul>
+      <a class="go" href="https://github.com/Brunda-tech/Student-task-manager" target="_blank" rel="noopener">View on GitHub →</a>
+    </article>
+    <article class="card reveal d1">
+      <span class="num">06</span><h3>My_chatbot</h3>
+      <ul>
+        <li>A web-based chatbot for general Q&amp;A, powered by the Gemini API.</li>
+        <li>Deployed live on Render.</li>
+      </ul>
+      <div class="tags"><span class="tag">Gemini API</span><span class="tag">Web App</span><span class="tag">Render</span></div>
+      <a class="go" href="https://my-chatbot-qomh.onrender.com" target="_blank" rel="noopener">Live Demo →</a>
+      <a class="go" href="https://github.com/Brunda-tech/My_Chatbot" target="_blank" rel="noopener">GitHub →</a>
+    </article>
+  </div>
+</section>
+
+<section id="live">
+  <h2 class="title reveal"><span>04.</span> Live Stats <small class="live off" id="liveBadge"><i></i><em id="liveTxt">connecting…</em></small></h2>
+  <div class="stats-grid">
+    <div class="sp reveal">
+      <div class="sp-head"><h3>LeetCode</h3><a href="https://leetcode.com/u/Brunda-17/" target="_blank" rel="noopener">@Brunda-17 ↗</a></div>
+      <div class="lc-main">
+        <div class="ringchart">
+          <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true">
+            <defs><linearGradient id="lcg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#00e5c3"/></linearGradient></defs>
+            <circle class="bgc" cx="75" cy="75" r="64" fill="none" stroke-width="11"/>
+            <circle class="fg" id="lcRing" cx="75" cy="75" r="64" fill="none" stroke-width="11" stroke-dasharray="402.12" stroke-dashoffset="402.12"/>
+          </svg>
+          <div class="mid"><b id="lcTotal">—</b><small>solved</small></div>
+        </div>
+        <div class="diffs">
+          <div class="diff easy"><div class="row"><span>Easy</span><span id="lcEasyN">—</span></div><div class="bar"><i id="lcEasyBar"></i></div></div>
+          <div class="diff med"><div class="row"><span>Medium</span><span id="lcMedN">—</span></div><div class="bar"><i id="lcMedBar"></i></div></div>
+          <div class="diff hard"><div class="row"><span>Hard</span><span id="lcHardN">—</span></div><div class="bar"><i id="lcHardBar"></i></div></div>
+        </div>
+      </div>
+      <div class="mini">
+        <div><b id="lcRank">—</b><span>global rank</span></div>
+        <div><b id="lcLast">—</b><span>last solved</span></div>
+        <div><b id="lcGoal">—</b><span>next goal</span></div>
+      </div>
+      <p class="sub">Recently solved</p>
+      <ul class="feed" id="lcFeed"><li class="note">Loading…</li></ul>
+    </div>
+
+    <div class="sp reveal d1">
+      <div class="sp-head"><h3>GitHub</h3><a href="https://github.com/Brunda-tech" target="_blank" rel="noopener">@Brunda-tech ↗</a></div>
+      <div class="mini two">
+        <div><b id="ghTotal">—</b><span>contributions / yr</span></div>
+        <div><b id="ghStreak">—</b><span>current streak (days)</span></div>
+        <div><b id="ghLongest">—</b><span>longest streak</span></div>
+        <div><b id="ghRepos">—</b><span>public repos</span></div>
+      </div>
+      <p class="sub">Recent activity</p>
+      <ul class="feed" id="ghFeed"><li class="note">Loading…</li></ul>
+    </div>
+  </div>
+
+  <div class="sp reveal" style="margin-top:26px">
+    <div class="sp-head"><h3>Contribution graph</h3><span class="sub" id="heatSum" style="margin:0"></span></div>
+    <div class="heat-wrap" id="heatWrap"><div class="heat" id="heat"></div></div>
+    <div class="heat-legend"><span>Less</span><i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i><span>More</span></div>
+  </div>
+</section>
+
+<section id="journey">
+  <h2 class="title reveal"><span>05.</span> Journey</h2>
+  <div class="two">
+    <div class="reveal">
+      <h3 class="mono" style="color:var(--a2);margin-bottom:22px">Education</h3>
+      <div class="timeline">
+        <div class="tl">
+          <span class="meta">2025 – 2029</span>
+          <h4>BE in Computer Science &amp; Engineering</h4>
+          <p>Dayananda Sagar College of Engineering, Bengaluru, Karnataka</p>
+          <p>CGPA: 9.70 / 10 (current)</p>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <h3 class="mono" style="color:var(--a2);margin-bottom:22px">Certifications</h3>
+      <div class="certs">
+        <button class="cert" data-file="certificates/genai-for-everyone" data-title="Generative AI for Everyone"><span class="ic">AI</span><span class="ct">Generative AI for Everyone<small>DeepLearning.AI · Coursera</small></span><span class="view">View ↗</span></button>
+        <button class="cert" data-file="certificates/python-for-everybody" data-title="Programming for Everybody (Getting Started with Python)"><span class="ic">Py</span><span class="ct">Programming for Everybody (Python)<small>University of Michigan · Coursera</small></span><span class="view">View ↗</span></button>
+        <button class="cert" data-file="certificates/sql-ucdavis" data-title="SQL for Data Science (UC Davis)"><span class="ic">SQ</span><span class="ct">SQL for Data Science<small>UC Davis · Coursera</small></span><span class="view">View ↗</span></button>
+        <button class="cert" data-file="certificates/python-sql-scaler" data-title="Python and SQL for Data Science (Scaler Topics)"><span class="ic">Py</span><span class="ct">Python and SQL for Data Science<small>Scaler Topics</small></span><span class="view">View ↗</span></button>
+        <button class="cert" data-file="certificates/java-scaler" data-title="Java Course - Mastering the Fundamentals (Scaler Topics)"><span class="ic">Ja</span><span class="ct">Java Course: Mastering the Fundamentals<small>Scaler Topics</small></span><span class="view">View ↗</span></button>
+        <button class="cert" data-file="certificates/aws-educate" data-title="AWS Educate: Cloud Computing 101"><span class="ic">AW</span><span class="ct">AWS Educate: Cloud Computing 101<small>Training badge</small></span><span class="view">View ↗</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <h2 class="title reveal"><span>06.</span> Resume</h2>
+  <div class="resume-box reveal">
+    <div class="doc" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div>
+      <h3>Brunda S: Computer Science Engineering Student</h3>
+      <p>Education, skills, projects and certifications in one page.</p>
+      <div class="btns" style="margin-top:20px">
+        <a href="resume.pdf" target="_blank" rel="noopener" class="btn primary">Open Resume ↗</a>
+        <a href="resume.pdf" download="Brunda_S_Resume.pdf" class="btn">Download PDF</a>
+        <button class="btn" id="rtoggle" style="background:none;color:inherit;font:inherit;font-weight:600;cursor:pointer">Preview Here</button>
+      </div>
+    </div>
+  </div>
+  <div id="rwrap"></div>
+</section>
+
+<section id="contact">
+  <h2 class="title reveal"><span>07.</span> Contact</h2>
+  <div class="contact-box reveal">
+    <h2>Let's build something <span class="grad">together</span></h2>
+    <p>I'm open to internships, collaborations and SDE opportunities. Say hi, my inbox is always open.</p>
+    <div class="btns" style="justify-content:center">
+      <a href="mailto:brundashivakumar17@gmail.com" class="btn primary">Send an Email</a>
+      <a href="https://linkedin.com/in/brunda-s-a46539383" target="_blank" rel="noopener" class="btn">LinkedIn</a>
+      <a href="https://github.com/Brunda-tech" target="_blank" rel="noopener" class="btn">GitHub</a>
+    </div>
+    <a class="mail" href="mailto:brundashivakumar17@gmail.com">brundashivakumar17@gmail.com</a>
+  </div>
+</section>
+</main>
+
+<footer>Designed &amp; built by Brunda S · <span id="yr"></span></footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+  <div class="modal-box">
+    <button id="mclose" aria-label="Close">✕</button>
+    <h3 id="mtitle"></h3>
+    <div id="mbody"></div>
+    <div class="modal-foot"><span id="mhint"></span><a id="mopen" href="#" target="_blank" rel="noopener">Open in new tab ↗</a></div>
+  </div>
+</div>
+
+<script>
+/* ---------- theme ---------- */
+const root=document.documentElement, themeBtn=document.getElementById('theme');
+try{const t=localStorage.getItem('theme'); if(t) root.dataset.theme=t;}catch(e){}
+function syncIcon(){themeBtn.textContent=root.dataset.theme==='dark'?'☾':'☀'}
+syncIcon();
+themeBtn.onclick=()=>{
+  root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+  syncIcon();
+};
+
+/* ---------- mobile menu ---------- */
+const links=document.getElementById('links');
+document.getElementById('burger').onclick=()=>links.classList.toggle('open');
+links.querySelectorAll('a').forEach(a=>a.onclick=()=>links.classList.remove('open'));
+
+/* ---------- typing effect ---------- */
+const roles=['aspiring SDE','AI/ML enthusiast','problem solver','CSE student @ DSCE','builder of things'];
+const typed=document.getElementById('typed');
+let ri=0,ci=0,del=false;
+(function type(){
+  const word=roles[ri];
+  typed.textContent=word.slice(0,ci);
+  if(!del&&ci===word.length){del=true;return setTimeout(type,1400)}
+  if(del&&ci===0){del=false;ri=(ri+1)%roles.length}
+  ci+=del?-1:1;
+  setTimeout(type,del?40:85);
+})();
+
+/* ---------- neural network canvas ---------- */
+const cv=document.getElementById('bg'),ctx=cv.getContext('2d');
+let W,H,pts=[],mouse={x:-999,y:-999};
+function resize(){
+  W=cv.width=innerWidth;H=cv.height=innerHeight;
+  const n=Math.min(110,Math.floor(W*H/14000));
+  pts=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}));
+}
+resize();addEventListener('resize',resize);
+addEventListener('mousemove',e=>{
+  mouse.x=e.clientX;mouse.y=e.clientY;
+  const g=document.getElementById('glow');g.style.left=e.clientX+'px';g.style.top=e.clientY+'px';
+});
+function css(v){return getComputedStyle(root).getPropertyValue(v).trim()}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  const c1=css('--a1'),c2=css('--a2');
+  for(let i=0;i<pts.length;i++){
+    const p=pts[i];
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+    const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);
+    if(d<120){p.x+=dx/d*1.6;p.y+=dy/d*1.6}
+    ctx.beginPath();ctx.arc(p.x,p.y,2,0,6.283);ctx.fillStyle=c2;ctx.globalAlpha=.8;ctx.fill();
+    for(let j=i+1;j<pts.length;j++){
+      const q=pts[j],dd=Math.hypot(p.x-q.x,p.y-q.y);
+      if(dd<135){
+        ctx.globalAlpha=(1-dd/135)*.35;ctx.strokeStyle=c1;ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
+      }
+    }
+    if(d<170){ctx.globalAlpha=(1-d/170)*.6;ctx.strokeStyle=c2;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke()}
+  }
+  ctx.globalAlpha=1;
+  requestAnimationFrame(draw);
+}
+draw();
+
+/* ---------- reveal + counters ---------- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll?.('.count').forEach(runCount);
+  io.unobserve(e.target);
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+function runCount(el){
+  const to=+el.dataset.to,dec=+el.dataset.dec||0,t0=performance.now(),dur=1600;
+  (function f(t){
+    const k=Math.min((t-t0)/dur,1),e=1-Math.pow(1-k,3);
+    el.textContent=(to*e).toFixed(dec);
+    if(k<1)requestAnimationFrame(f);
+  })(t0);
+}
+
+/* ---------- 3D tilt on orb + project cards ---------- */
+const orb=document.getElementById('orb');
+addEventListener('mousemove',e=>{
+  const x=(e.clientX/innerWidth-.5)*2,y=(e.clientY/innerHeight-.5)*2;
+  orb.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg)`;
+});
+document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{
+    const r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+    c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');
+    c.style.transform=`perspective(800px) rotateY(${(x/r.width-.5)*10}deg) rotateX(${-(y/r.height-.5)*10}deg) translateY(-6px)`;
+  });
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+/* ---------- scroll progress + active link ---------- */
+const secs=[...document.querySelectorAll('section[id]')],navA=[...links.querySelectorAll('a')];
+addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  document.getElementById('progress').style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-200)cur=s.id});
+  navA.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---------- live stats (LeetCode + GitHub) ---------- */
+(function(){
+  const CFG={github:'Brunda-tech',every:5*60*1000};
+  const $=id=>document.getElementById(id);
+  const set=(id,v)=>{const e=$(id);if(e)e.textContent=v};
+  const cap=s=>s?s[0].toUpperCase()+s.slice(1):'';
+  const RING=2*Math.PI*64;
+  let snap=null,lastRun=0,busy=false;
+
+  function ago(ms){
+    const s=Math.max(0,(Date.now()-ms)/1000);
+    if(s<60)return 'just now';
+    const m=s/60;if(m<60)return Math.floor(m)+'m ago';
+    const h=m/60;if(h<24)return Math.floor(h)+'h ago';
+    const d=h/24;if(d<30)return Math.floor(d)+'d ago';
+    return Math.floor(d/30)+'mo ago';
+  }
+  async function getJSON(url,ms=8000){
+    const ctl=new AbortController(),t=setTimeout(()=>ctl.abort(),ms);
+    try{
+      const r=await fetch(url,{signal:ctl.signal,headers:{Accept:'application/json'}});
+      if(!r.ok)throw new Error('HTTP '+r.status);
+      return await r.json();
+    }finally{clearTimeout(t)}
+  }
+  // count smoothly from the number currently shown to the new one
+  function tween(el,to){
+    if(!el||to==null||isNaN(to))return;
+    const from=parseFloat(String(el.textContent).replace(/,/g,''))||0;
+    if(from===to){el.textContent=to.toLocaleString();return}
+    if(from>0){el.classList.remove('bump');void el.offsetWidth;el.classList.add('bump')}
+    const t0=performance.now(),dur=900;
+    (function f(t){
+      const k=Math.min((t-t0)/dur,1),e=1-Math.pow(1-k,3);
+      el.textContent=Math.round(from+(to-from)*e).toLocaleString();
+      if(k<1)requestAnimationFrame(f);
+    })(t0);
+  }
+  function note(ul,text){
+    ul.textContent='';
+    const li=document.createElement('li');li.className='note';li.textContent=text;ul.append(li);
+  }
+  function feedItem(ul,text,href,whenMs){
+    const li=document.createElement('li'),a=document.createElement('a'),tm=document.createElement('time');
+    a.textContent=text;a.href=href;a.target='_blank';a.rel='noopener';
+    tm.textContent=ago(whenMs);
+    li.append(a,tm);ul.append(li);
+  }
+
+  function renderLC(d){
+    tween($('lcTotal'),d.solved);
+    const goals=[50,100,150,200,250,300,400,500,750,1000,1500,2000,3000];
+    const goal=goals.find(g=>g>d.solved)||d.solved;
+    $('lcRing').style.strokeDashoffset=RING*(1-Math.min(d.solved/goal,1));
+    [['easy','lcEasy'],['medium','lcMed'],['hard','lcHard']].forEach(([k,id])=>{
+      const n=d[k]??0,tot=d.totals&&d.totals[k];
+      set(id+'N',tot?n+' / '+tot:String(n));
+      $(id+'Bar').style.width=(tot?Math.max(n/tot*100,n?2:0):0)+'%';
+    });
+    set('lcRank',d.ranking?'#'+Number(d.ranking).toLocaleString():'—');
+    set('lcGoal',goal);
+    const rec=(d.recent||[]).filter((r,i,a)=>a.findIndex(x=>x.slug===r.slug)===i);
+    set('lcLast',rec[0]?ago(rec[0].timestamp*1000):'—');
+    const ul=$('lcFeed');ul.textContent='';
+    if(!rec.length)note(ul,'No recent submissions yet');
+    rec.slice(0,5).forEach(r=>feedItem(ul,r.title,'https://leetcode.com/problems/'+encodeURIComponent(r.slug)+'/',r.timestamp*1000));
+    // keep the About-section counter in sync
+    const a=$('lcCountAbout');
+    if(a){
+      $('lcPlus').hidden=true;
+      if(a.closest('.reveal')&&a.closest('.reveal').classList.contains('in'))tween(a,d.solved);
+      else a.dataset.to=d.solved;
+    }
+  }
+
+  function renderHeat(days){
+    if(!Array.isArray(days)||!days.length)return;
+    days=days.slice().sort((a,b)=>a.date<b.date?-1:1);
+    const box=$('heat');box.textContent='';
+    const pad=new Date(days[0].date+'T00:00:00Z').getUTCDay();
+    for(let i=0;i<pad;i++){const x=document.createElement('i');x.className='x';box.append(x)}
+    let total=0,longest=0,run=0;
+    days.forEach(d=>{
+      total+=d.count;
+      run=d.count>0?run+1:0;longest=Math.max(longest,run);
+      const lv=d.level!=null&&isFinite(+d.level)?Math.min(4,Math.max(0,+d.level)):(d.count>0?1:0);
+      const c=document.createElement('i');
+      c.className='l'+lv;
+      c.title=d.count+' contribution'+(d.count===1?'':'s')+' on '+d.date;
+      box.append(c);
+    });
+    let cur=0,i=days.length-1;
+    if(days[i].count===0)i--;               // today may not have a contribution yet
+    for(;i>=0&&days[i].count>0;i--)cur++;
+    tween($('ghTotal'),total);tween($('ghStreak'),cur);tween($('ghLongest'),longest);
+    set('heatSum',total.toLocaleString()+' contributions in the last year');
+    const w=$('heatWrap');w.scrollLeft=w.scrollWidth;   // show the most recent weeks
+  }
+
+  function evLine(e){
+    const repo=((e.repo&&e.repo.name)||'').split('/').pop(),p=e.payload||{};
+    switch(e.type){
+      case 'PushEvent':{
+        const n=p.size||(p.commits&&p.commits.length);
+        return n?'Pushed '+n+' commit'+(n>1?'s':'')+' to '+repo:'Pushed to '+repo;
+      }
+      case 'CreateEvent':return p.ref_type==='repository'?'Created repository '+repo:'Created '+p.ref_type+' in '+repo;
+      case 'PullRequestEvent':return (p.action==='closed'&&p.pull_request&&p.pull_request.merged?'Merged':cap(p.action))+' a pull request in '+repo;
+      case 'IssuesEvent':return cap(p.action)+' an issue in '+repo;
+      case 'WatchEvent':return 'Starred '+repo;
+      case 'ForkEvent':return 'Forked '+repo;
+      default:return null;
+    }
+  }
+  function renderEvents(list){
+    const ul=$('ghFeed');ul.textContent='';
+    const items=(Array.isArray(list)?list:[]).map(e=>({t:evLine(e),e})).filter(x=>x.t&&x.e.repo).slice(0,5);
+    if(!items.length)return note(ul,'No recent public activity');
+    items.forEach(({t,e})=>feedItem(ul,t,'https://github.com/'+encodeURI(e.repo.name),Date.parse(e.created_at)));
+  }
+
+  function badge(live,text){
+    $('liveBadge').classList.toggle('off',!live);
+    set('liveTxt',text);
+  }
+
+  async function refresh(){
+    if(busy)return;busy=true;lastRun=Date.now();
+    const U=CFG.github;
+    const [s,u,ev,h]=await Promise.allSettled([
+      getJSON('data/stats.json?t='+Date.now()),
+      getJSON('https://api.github.com/users/'+U),
+      getJSON('https://api.github.com/users/'+U+'/events/public?per_page=30'),
+      getJSON('https://github-contributions-api.jogruber.de/v4/'+U+'?y=last')
+    ]);
+    if(s.status==='fulfilled')snap=s.value;
+
+    if(snap&&snap.leetcode&&snap.leetcode.solved!=null)renderLC(snap.leetcode);
+    else note($('lcFeed'),'LeetCode data appears after the first sync (see README)');
+
+    const repos=u.status==='fulfilled'?u.value.public_repos:(snap&&snap.github&&snap.github.profile&&snap.github.profile.public_repos);
+    if(repos!=null)tween($('ghRepos'),repos);
+
+    renderHeat(h.status==='fulfilled'?h.value.contributions:(snap&&snap.github&&snap.github.contributions));
+
+    if(ev.status==='fulfilled')renderEvents(ev.value);
+    else if(!$('ghFeed').querySelector('a'))note($('ghFeed'),'Activity unavailable right now');
+
+    const githubLive=[u,ev,h].some(x=>x.status==='fulfilled');
+    const lcData=!!(snap&&snap.leetcode);
+    const time=new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
+    if(githubLive||lcData)badge(true,'live · synced '+time);
+    else badge(false,'offline');
+    busy=false;
+  }
+
+  refresh();
+  setInterval(()=>{if(!document.hidden)refresh()},CFG.every);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&Date.now()-lastRun>60000)refresh()});
+})();
+
+/* ---------- resume preview ---------- */
+const rw=document.getElementById('rwrap'),rt=document.getElementById('rtoggle');
+rt.onclick=()=>{
+  const open=rw.classList.toggle('open');
+  rt.textContent=open?'Hide Preview':'Preview Here';
+  if(open&&!rw.firstElementChild){const f=document.createElement('iframe');f.src='resume.pdf';f.title='Resume';rw.appendChild(f)}
+};
+
+/* ---------- certificate viewer ---------- */
+const modal=document.getElementById('modal'),mbody=document.getElementById('mbody'),
+      mtitle=document.getElementById('mtitle'),mhint=document.getElementById('mhint'),mopen=document.getElementById('mopen');
+function showCert(base,title){
+  mtitle.textContent=title;mbody.innerHTML='';mhint.textContent='';mopen.href='#';
+  modal.classList.add('show');document.body.style.overflow='hidden';
+  const exts=['jpg','jpeg','png','webp'];let i=0;
+  (function tryNext(){
+    if(i>=exts.length){
+      const f=base+'.pdf';
+      mbody.innerHTML='<iframe src="'+f+'" title="'+title+'"></iframe>';
+      mopen.href=f;mhint.textContent='Not showing? Check that '+f+' exists in your repo.';
+      return;
+    }
+    const f=base+'.'+exts[i++],im=new Image();
+    im.onload=()=>{mbody.innerHTML='';im.alt=title;mbody.appendChild(im);mopen.href=f};
+    im.onerror=tryNext;
+    im.src=f;
+  })();
+}
+function closeCert(){modal.classList.remove('show');document.body.style.overflow='';mbody.innerHTML=''}
+document.querySelectorAll('.cert').forEach(b=>b.addEventListener('click',()=>showCert(b.dataset.file,b.dataset.title)));
+document.getElementById('mclose').onclick=closeCert;
+modal.addEventListener('click',e=>{if(e.target===modal)closeCert()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeCert()});
+</script>
+</body>
+</html>
