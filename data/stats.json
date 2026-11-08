@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-11-08T06:55:59.268Z",
+ "generatedAt": "2026-11-08T14:06:39.697Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 224,
+  "solved": 225,
   "easy": 149,
-  "medium": 70,
+  "medium": 71,
   "hard": 5,
   "totals": {
    "all": 4109,
@@ -12,8 +12,23 @@
    "medium": 2145,
    "hard": 989
   },
-  "ranking": 767691,
+  "ranking": 768012,
   "recent": [
+   {
+    "title": "Subarray Sums Divisible by K",
+    "slug": "subarray-sums-divisible-by-k",
+    "timestamp": 1794143184
+   },
+   {
+    "title": "Subarray Sum Equals K",
+    "slug": "subarray-sum-equals-k",
+    "timestamp": 1794141514
+   },
+   {
+    "title": "Find First and Last Position of Element in Sorted Array",
+    "slug": "find-first-and-last-position-of-element-in-sorted-array",
+    "timestamp": 1794140412
+   },
    {
     "title": "Group Anagrams",
     "slug": "group-anagrams",
@@ -48,21 +63,6 @@
     "title": "Reshape the Matrix",
     "slug": "reshape-the-matrix",
     "timestamp": 1793248116
-   },
-   {
-    "title": "Divide a String Into Groups of Size k",
-    "slug": "divide-a-string-into-groups-of-size-k",
-    "timestamp": 1793118242
-   },
-   {
-    "title": "Rotate Array",
-    "slug": "rotate-array",
-    "timestamp": 1793115406
-   },
-   {
-    "title": "Ugly Number",
-    "slug": "ugly-number",
-    "timestamp": 1793115091
    }
   ]
  },
