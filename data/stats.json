@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-11-11T00:09:37.227Z",
+ "generatedAt": "2026-11-11T06:55:11.476Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 225,
-  "easy": 149,
-  "medium": 71,
+  "solved": 227,
+  "easy": 150,
+  "medium": 72,
   "hard": 5,
   "totals": {
    "all": 4110,
@@ -14,6 +14,16 @@
   },
   "ranking": 764496,
   "recent": [
+   {
+    "title": "Symmetric Tree",
+    "slug": "symmetric-tree",
+    "timestamp": 1794379558
+   },
+   {
+    "title": "Flatten a Multilevel Doubly Linked List",
+    "slug": "flatten-a-multilevel-doubly-linked-list",
+    "timestamp": 1794378896
+   },
    {
     "title": "Subarray Sums Divisible by K",
     "slug": "subarray-sums-divisible-by-k",
@@ -53,16 +63,6 @@
     "title": "Next Permutation",
     "slug": "next-permutation",
     "timestamp": 1793375561
-   },
-   {
-    "title": "Is Subsequence",
-    "slug": "is-subsequence",
-    "timestamp": 1793373190
-   },
-   {
-    "title": "Reshape the Matrix",
-    "slug": "reshape-the-matrix",
-    "timestamp": 1793248116
    }
   ]
  },
