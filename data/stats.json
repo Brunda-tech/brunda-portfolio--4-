@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-13T14:23:59.269Z",
+ "generatedAt": "2026-11-13T20:56:50.723Z",
  "leetcode": {
   "username": "Brunda-17",
   "solved": 227,
@@ -14,6 +14,11 @@
   },
   "ranking": 757058,
   "recent": [
+   {
+    "title": "Valid Sudoku",
+    "slug": "valid-sudoku",
+    "timestamp": 1794587321
+   },
    {
     "title": "Symmetric Tree",
     "slug": "symmetric-tree",
@@ -58,11 +63,6 @@
     "title": "Number of Students Doing Homework at a Given Time",
     "slug": "number-of-students-doing-homework-at-a-given-time",
     "timestamp": 1793376295
-   },
-   {
-    "title": "Next Permutation",
-    "slug": "next-permutation",
-    "timestamp": 1793375561
    }
   ]
  },
