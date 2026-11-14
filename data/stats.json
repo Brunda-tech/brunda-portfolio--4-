@@ -1,11 +1,11 @@
 {
- "generatedAt": "2026-11-14T14:45:48.969Z",
+ "generatedAt": "2026-11-14T19:42:08.756Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 230,
+  "solved": 231,
   "easy": 153,
   "medium": 72,
-  "hard": 5,
+  "hard": 6,
   "totals": {
    "all": 4110,
    "easy": 975,
@@ -14,6 +14,11 @@
   },
   "ranking": 745107,
   "recent": [
+   {
+    "title": "Sliding Window Maximum",
+    "slug": "sliding-window-maximum",
+    "timestamp": 1794671823
+   },
    {
     "title": "Minimum Positive Sum Subarray ",
     "slug": "minimum-positive-sum-subarray",
@@ -58,11 +63,6 @@
     "title": "Find First and Last Position of Element in Sorted Array",
     "slug": "find-first-and-last-position-of-element-in-sorted-array",
     "timestamp": 1794140412
-   },
-   {
-    "title": "Group Anagrams",
-    "slug": "group-anagrams",
-    "timestamp": 1793982240
    }
   ]
  },
