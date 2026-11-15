@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-15T12:29:54.342Z",
+ "generatedAt": "2026-11-15T19:03:48.601Z",
  "leetcode": {
   "username": "Brunda-17",
   "solved": 231,
@@ -14,6 +14,11 @@
   },
   "ranking": 741415,
   "recent": [
+   {
+    "title": "Maximum Subarray",
+    "slug": "maximum-subarray",
+    "timestamp": 1794755327
+   },
    {
     "title": "Sliding Window Maximum",
     "slug": "sliding-window-maximum",
@@ -58,11 +63,6 @@
     "title": "Subarray Sum Equals K",
     "slug": "subarray-sum-equals-k",
     "timestamp": 1794141514
-   },
-   {
-    "title": "Find First and Last Position of Element in Sorted Array",
-    "slug": "find-first-and-last-position-of-element-in-sorted-array",
-    "timestamp": 1794140412
    }
   ]
  },
