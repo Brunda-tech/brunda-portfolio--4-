@@ -1,11 +1,11 @@
 {
- "generatedAt": "2026-11-16T10:55:26.531Z",
+ "generatedAt": "2026-11-16T20:49:39.369Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 231,
-  "easy": 153,
-  "medium": 72,
-  "hard": 6,
+  "solved": 234,
+  "easy": 154,
+  "medium": 73,
+  "hard": 7,
   "totals": {
    "all": 4114,
    "easy": 976,
@@ -14,6 +14,21 @@
   },
   "ranking": 741695,
   "recent": [
+   {
+    "title": "Find All Anagrams in a String",
+    "slug": "find-all-anagrams-in-a-string",
+    "timestamp": 1794846356
+   },
+   {
+    "title": "Contains Duplicate III",
+    "slug": "contains-duplicate-iii",
+    "timestamp": 1794844577
+   },
+   {
+    "title": "Shortest Completing Word",
+    "slug": "shortest-completing-word",
+    "timestamp": 1794840336
+   },
    {
     "title": "Maximum Subarray",
     "slug": "maximum-subarray",
@@ -48,28 +63,13 @@
     "title": "Symmetric Tree",
     "slug": "symmetric-tree",
     "timestamp": 1794379558
-   },
-   {
-    "title": "Flatten a Multilevel Doubly Linked List",
-    "slug": "flatten-a-multilevel-doubly-linked-list",
-    "timestamp": 1794378896
-   },
-   {
-    "title": "Subarray Sums Divisible by K",
-    "slug": "subarray-sums-divisible-by-k",
-    "timestamp": 1794143184
-   },
-   {
-    "title": "Subarray Sum Equals K",
-    "slug": "subarray-sum-equals-k",
-    "timestamp": 1794141514
    }
   ]
  },
  "github": {
   "username": "Brunda-tech",
   "profile": {
-   "public_repos": 16,
+   "public_repos": 18,
    "followers": 2
   },
   "contributions": [
@@ -356,7 +356,7 @@
    {
     "date": "2026-01-11",
     "count": 2,
-    "level": 2
+    "level": 1
    },
    {
     "date": "2026-01-12",
@@ -1371,7 +1371,7 @@
    {
     "date": "2026-08-02",
     "count": 4,
-    "level": 3
+    "level": 2
    },
    {
     "date": "2026-08-03",
@@ -1801,12 +1801,12 @@
    {
     "date": "2026-10-27",
     "count": 2,
-    "level": 2
+    "level": 1
    },
    {
     "date": "2026-10-28",
     "count": 4,
-    "level": 3
+    "level": 2
    },
    {
     "date": "2026-10-29",
@@ -1861,7 +1861,7 @@
    {
     "date": "2026-11-08",
     "count": 2,
-    "level": 2
+    "level": 1
    },
    {
     "date": "2026-11-09",
@@ -1891,7 +1891,7 @@
    {
     "date": "2026-11-14",
     "count": 2,
-    "level": 2
+    "level": 1
    },
    {
     "date": "2026-11-15",
@@ -1900,8 +1900,8 @@
    },
    {
     "date": "2026-11-16",
-    "count": 0,
-    "level": 0
+    "count": 9,
+    "level": 4
    }
   ]
  }
