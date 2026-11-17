@@ -1,9 +1,9 @@
 {
- "generatedAt": "2026-11-17T12:17:13.923Z",
+ "generatedAt": "2026-11-17T14:37:35.318Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 235,
-  "easy": 155,
+  "solved": 236,
+  "easy": 156,
   "medium": 73,
   "hard": 7,
   "totals": {
@@ -14,6 +14,11 @@
   },
   "ranking": 726158,
   "recent": [
+   {
+    "title": "Maximum Average Subarray I",
+    "slug": "maximum-average-subarray-i",
+    "timestamp": 1794926199
+   },
    {
     "title": "Maximum Depth of Binary Tree",
     "slug": "maximum-depth-of-binary-tree",
@@ -58,11 +63,6 @@
     "title": "Second Largest Digit in a String",
     "slug": "second-largest-digit-in-a-string",
     "timestamp": 1794638857
-   },
-   {
-    "title": "Valid Sudoku",
-    "slug": "valid-sudoku",
-    "timestamp": 1794587321
    }
   ]
  },
