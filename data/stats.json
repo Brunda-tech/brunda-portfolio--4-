@@ -1,19 +1,24 @@
 {
- "generatedAt": "2026-11-17T03:24:41.091Z",
+ "generatedAt": "2026-11-17T12:17:13.923Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 234,
-  "easy": 154,
+  "solved": 235,
+  "easy": 155,
   "medium": 73,
   "hard": 7,
   "totals": {
-   "all": 4114,
+   "all": 4115,
    "easy": 976,
    "medium": 2148,
-   "hard": 990
+   "hard": 991
   },
-  "ranking": 741695,
+  "ranking": 726158,
   "recent": [
+   {
+    "title": "Maximum Depth of Binary Tree",
+    "slug": "maximum-depth-of-binary-tree",
+    "timestamp": 1794909775
+   },
    {
     "title": "Find All Anagrams in a String",
     "slug": "find-all-anagrams-in-a-string",
@@ -58,18 +63,13 @@
     "title": "Valid Sudoku",
     "slug": "valid-sudoku",
     "timestamp": 1794587321
-   },
-   {
-    "title": "Symmetric Tree",
-    "slug": "symmetric-tree",
-    "timestamp": 1794379558
    }
   ]
  },
  "github": {
   "username": "Brunda-tech",
   "profile": {
-   "public_repos": 18,
+   "public_repos": 19,
    "followers": 2
   },
   "contributions": [
@@ -1905,8 +1905,8 @@
    },
    {
     "date": "2026-11-17",
-    "count": 0,
-    "level": 0
+    "count": 9,
+    "level": 4
    }
   ]
  }
