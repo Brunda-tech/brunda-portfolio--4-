@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-19T10:37:20.385Z",
+ "generatedAt": "2026-11-19T19:21:29.699Z",
  "leetcode": {
   "username": "Brunda-17",
   "solved": 238,
@@ -12,8 +12,18 @@
    "medium": 2148,
    "hard": 991
   },
-  "ranking": 722494,
+  "ranking": 715174,
   "recent": [
+   {
+    "title": "Minimum Size Subarray Sum",
+    "slug": "minimum-size-subarray-sum",
+    "timestamp": 1795101944
+   },
+   {
+    "title": "Longest Substring Without Repeating Characters",
+    "slug": "longest-substring-without-repeating-characters",
+    "timestamp": 1795101202
+   },
    {
     "title": "Delete Greatest Value in Each Row",
     "slug": "delete-greatest-value-in-each-row",
@@ -53,16 +63,6 @@
     "title": "Maximum Subarray",
     "slug": "maximum-subarray",
     "timestamp": 1794755327
-   },
-   {
-    "title": "Sliding Window Maximum",
-    "slug": "sliding-window-maximum",
-    "timestamp": 1794671823
-   },
-   {
-    "title": "Minimum Positive Sum Subarray ",
-    "slug": "minimum-positive-sum-subarray",
-    "timestamp": 1794642421
    }
   ]
  },
@@ -1915,8 +1915,8 @@
    },
    {
     "date": "2026-11-19",
-    "count": 2,
-    "level": 1
+    "count": 4,
+    "level": 2
    }
   ]
  }
