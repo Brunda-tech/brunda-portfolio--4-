@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-11-20T01:23:35.023Z",
+ "generatedAt": "2026-11-20T17:32:48.080Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 238,
+  "solved": 239,
   "easy": 158,
-  "medium": 73,
+  "medium": 74,
   "hard": 7,
   "totals": {
    "all": 4115,
@@ -12,8 +12,13 @@
    "medium": 2148,
    "hard": 991
   },
-  "ranking": 715174,
+  "ranking": 715429,
   "recent": [
+   {
+    "title": "Longest Repeating Character Replacement",
+    "slug": "longest-repeating-character-replacement",
+    "timestamp": 1795191396
+   },
    {
     "title": "Minimum Size Subarray Sum",
     "slug": "minimum-size-subarray-sum",
@@ -58,11 +63,6 @@
     "title": "Shortest Completing Word",
     "slug": "shortest-completing-word",
     "timestamp": 1794840336
-   },
-   {
-    "title": "Maximum Subarray",
-    "slug": "maximum-subarray",
-    "timestamp": 1794755327
    }
   ]
  },
@@ -1920,8 +1920,8 @@
    },
    {
     "date": "2026-11-20",
-    "count": 0,
-    "level": 0
+    "count": 1,
+    "level": 1
    }
   ]
  }
