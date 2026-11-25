@@ -1,19 +1,34 @@
 {
- "generatedAt": "2026-11-25T02:56:05.599Z",
+ "generatedAt": "2026-11-25T12:13:25.082Z",
  "leetcode": {
   "username": "Brunda-17",
-  "solved": 240,
+  "solved": 241,
   "easy": 159,
   "medium": 74,
-  "hard": 7,
+  "hard": 8,
   "totals": {
    "all": 4124,
    "easy": 978,
    "medium": 2152,
    "hard": 994
   },
-  "ranking": 712723,
+  "ranking": 705468,
   "recent": [
+   {
+    "title": "Longest Consecutive Sequence",
+    "slug": "longest-consecutive-sequence",
+    "timestamp": 1795592034
+   },
+   {
+    "title": "Longest Increasing Path in a Matrix",
+    "slug": "longest-increasing-path-in-a-matrix",
+    "timestamp": 1795590310
+   },
+   {
+    "title": "Kth Largest Element in an Array",
+    "slug": "kth-largest-element-in-an-array",
+    "timestamp": 1795589189
+   },
    {
     "title": "Maximum Area of Longest Diagonal Rectangle",
     "slug": "maximum-area-of-longest-diagonal-rectangle",
@@ -48,21 +63,6 @@
     "title": "Maximum Average Subarray I",
     "slug": "maximum-average-subarray-i",
     "timestamp": 1794926199
-   },
-   {
-    "title": "Maximum Depth of Binary Tree",
-    "slug": "maximum-depth-of-binary-tree",
-    "timestamp": 1794909775
-   },
-   {
-    "title": "Find All Anagrams in a String",
-    "slug": "find-all-anagrams-in-a-string",
-    "timestamp": 1794846356
-   },
-   {
-    "title": "Contains Duplicate III",
-    "slug": "contains-duplicate-iii",
-    "timestamp": 1794844577
    }
   ]
  },
@@ -1910,8 +1910,8 @@
    },
    {
     "date": "2026-11-25",
-    "count": 0,
-    "level": 0
+    "count": 3,
+    "level": 2
    }
   ]
  }
